@@ -11,5 +11,5 @@ const disableReactDevTools = (): void => {
   }
 };
 
-install();
 disableReactDevTools();
+install();
