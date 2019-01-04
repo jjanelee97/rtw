@@ -5,14 +5,14 @@ import LinkButton from 'components/button/LinkButton';
 import {
   AppBar,
   Toolbar,
-  Button,
   Grid,
   InputBase,
   IconButton
 } from '@material-ui/core';
 import { Theme } from '@material-ui/core/styles';
-import { makeStyles } from '@material-ui/styles';
+import makeStyles from '@material-ui/styles/makeStyles';
 import { SearchOutlined } from '@material-ui/icons';
+import LoginPartial from './LoginPartial';
 
 const useStyles = makeStyles((theme: Theme) => ({
   grow: {
@@ -22,15 +22,8 @@ const useStyles = makeStyles((theme: Theme) => ({
     margin: '0 auto',
     display: 'flex'
   },
-  homeButton: {
-    marginRight: theme.spacing.unit / 2
-  },
-  loginButton: {
-    marginLeft: theme.spacing.unit / 2
-  },
   button: {
-    marginLeft: theme.spacing.unit / 2,
-    marginRight: theme.spacing.unit / 2
+    marginRight: theme.spacing.unit
   },
   selected: {
     color: '#fff'
@@ -38,7 +31,8 @@ const useStyles = makeStyles((theme: Theme) => ({
   search: {
     display: 'flex',
     backgroundColor: 'rgba(255, 255, 255, 0.1)',
-    alignItems: 'center'
+    alignItems: 'center',
+    marginRight: theme.spacing.unit
   },
   input: {
     flex: 1,
@@ -75,7 +69,6 @@ const Header = () => {
           <Grid item xs={12} sm={9} className={classes.container}>
             <LinkButton
               variant="outlined"
-              className={classes.homeButton}
               to={'/'}
               exact={true}
               activeClassName={classes.selected}
@@ -99,7 +92,7 @@ const Header = () => {
                 {item.title}
               </LinkButton>
             ))}
-            <Button className={classes.loginButton}>Login</Button>
+            <LoginPartial />
           </Grid>
         </Grid>
       </Toolbar>

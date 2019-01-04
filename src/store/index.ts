@@ -1,15 +1,15 @@
-import * as Counter from './Counter';
+import * as Identity from './Identity';
 import createStore from 'utils/store/createStore';
 
 export default interface AppState {
-	counter: Counter.State;
+  identity: Identity.State;
 }
 
 const reducers = {
-	counter: Counter.reducer
+  identity: Identity.reducer
 };
 
 export const store = createStore({
-	reducers: reducers,
-	initialState: undefined
+  reducers: reducers,
+  initialState: undefined
 });

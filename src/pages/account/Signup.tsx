@@ -1,5 +1,8 @@
 import React from 'react';
 import Helmet from 'react-helmet';
+
+import { LinkButton } from 'components/button';
+
 import {
   FormControl,
   InputLabel,
@@ -9,9 +12,7 @@ import {
   Typography
 } from '@material-ui/core';
 import { Theme } from '@material-ui/core/styles';
-import { makeStyles } from '@material-ui/styles';
-
-import { LinkButton } from 'components/button';
+import makeStyles from '@material-ui/styles/makeStyles';
 
 const useStyles = makeStyles((theme: Theme) => ({
   paper: {

@@ -1,6 +1,8 @@
 import React from 'react';
+
+import { LinkListItem } from 'components/button';
+
 import { Drawer, List, ListItemIcon, ListItemText } from '@material-ui/core';
-import { Theme } from '@material-ui/core/styles';
 import {
   DashboardOutlined,
   GroupOutlined,
@@ -8,8 +10,8 @@ import {
   LockOutlined,
   CategoryOutlined
 } from '@material-ui/icons';
-import { LinkListItem } from 'components/button';
-import { makeStyles } from '@material-ui/styles';
+import { Theme } from '@material-ui/core/styles';
+import makeStyles from '@material-ui/styles/makeStyles';
 
 const useStyles = makeStyles((theme: Theme) => ({
   drawer: {

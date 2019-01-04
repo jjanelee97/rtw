@@ -63,4 +63,6 @@ const theme = createMuiTheme({
   }
 });
 
+theme.shadows = theme.shadows.fill('none');
+
 export default theme;

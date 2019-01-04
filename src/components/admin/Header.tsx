@@ -10,8 +10,9 @@ import {
   IconButton
 } from '@material-ui/core';
 import { Theme } from '@material-ui/core/styles';
-import { makeStyles } from '@material-ui/styles';
+import makeStyles from '@material-ui/styles/makeStyles';
 import { SearchOutlined } from '@material-ui/icons';
+import LoginPartial from 'components/shared/LoginPartial';
 
 const useStyles = makeStyles((theme: Theme) => ({
   grow: {
@@ -27,12 +28,8 @@ const useStyles = makeStyles((theme: Theme) => ({
   homeButton: {
     marginRight: theme.spacing.unit / 2
   },
-  loginButton: {
-    marginLeft: theme.spacing.unit / 2
-  },
   button: {
-    marginLeft: theme.spacing.unit / 2,
-    marginRight: theme.spacing.unit / 2
+    marginRight: theme.spacing.unit
   },
   selected: {
     color: '#fff'
@@ -40,7 +37,8 @@ const useStyles = makeStyles((theme: Theme) => ({
   search: {
     display: 'flex',
     backgroundColor: 'rgba(255, 255, 255, 0.1)',
-    alignItems: 'center'
+    alignItems: 'center',
+    marginRight: theme.spacing.unit
   },
   input: {
     flex: 1,
@@ -54,8 +52,8 @@ const useStyles = makeStyles((theme: Theme) => ({
 
 const Links = [
   {
-    link: '/account/signin',
-    title: 'Signin'
+    link: '/admin/message',
+    title: 'Message'
   }
 ];
 
@@ -93,6 +91,7 @@ const Header = () => {
                 {item.title}
               </LinkButton>
             ))}
+            <LoginPartial />
           </Grid>
         </Grid>
       </Toolbar>

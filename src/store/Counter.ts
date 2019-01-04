@@ -2,15 +2,15 @@ import createReducer from 'utils/store/createReducer';
 
 //#region Action
 
-const IncrementType = '@@COUNTER/INCREMENT';
-const DecrementType = '@@COUNTER/DECREMENT';
+const COUNTER_INCREMENT = '@@COUNTER/INCREMENT';
+const COUNTER_DECREMENT = '@@COUNTER/DECREMENT';
 
 interface IncrementAction {
-  type: typeof IncrementType;
+  type: typeof COUNTER_INCREMENT;
 }
 
 interface DecrementAction {
-  type: typeof DecrementType;
+  type: typeof COUNTER_DECREMENT;
 }
 
 //#endregion
@@ -18,8 +18,8 @@ interface DecrementAction {
 //#region Action Creators
 
 export const actionCreators = {
-  increment: () => <IncrementAction>{ type: IncrementType },
-  decrement: () => <DecrementAction>{ type: DecrementType }
+  increment: () => <IncrementAction>{ type: COUNTER_INCREMENT },
+  decrement: () => <DecrementAction>{ type: COUNTER_DECREMENT }
 };
 
 //#endregion
@@ -39,11 +39,11 @@ const initialState: State = {
 //#region Reducer
 
 export const reducer = createReducer(initialState, {
-  [IncrementType]: (prevState: State) => ({
+  [COUNTER_INCREMENT]: (prevState: State) => ({
     ...prevState,
     count: prevState.count + 1
   }),
-  [DecrementType]: (prevState: State) => ({
+  [COUNTER_DECREMENT]: (prevState: State) => ({
     ...prevState,
     count: prevState.count - 1
   })

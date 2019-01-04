@@ -5,10 +5,9 @@ import Header from './Header';
 import Sidebar from './Sidebar';
 import Loading from 'components/shared/Loading';
 
-import { makeStyles } from '@material-ui/styles';
-import { Theme } from '@material-ui/core/styles';
-
 import { Grid } from '@material-ui/core';
+import { Theme } from '@material-ui/core/styles';
+import makeStyles from '@material-ui/styles/makeStyles';
 
 const useStyles = makeStyles((theme: Theme) => ({
   root: {

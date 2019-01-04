@@ -4,8 +4,9 @@ import { withLazy, Layout } from 'components/shared';
 import { Layout as AdminLayout } from 'components/admin';
 const Dashboard = withLazy(() => import('pages/admin/Dashboard'));
 
-const Signin = withLazy(() => import('pages/account/Signin'));
 const Signup = withLazy(() => import('pages/account/Signup'));
+const Signin = withLazy(() => import('pages/account/Signin'));
+const Signout = withLazy(() => import('pages/account/Signout'));
 const Home = withLazy(() => import('pages/Home'));
 const About = withLazy(() => import('pages/About'));
 const Contact = withLazy(() => import('pages/Contact'));
@@ -28,14 +29,19 @@ const routes: RouteConfig[] = [
     ]
   },
   {
+    path: '/account/signup',
+    exact: true,
+    component: Signup
+  },
+  {
     path: '/account/signin',
     exact: true,
     component: Signin
   },
   {
-    path: '/account/signup',
+    path: '/account/signout',
     exact: true,
-    component: Signup
+    component: Signout
   },
   {
     path: '/',

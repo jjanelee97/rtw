@@ -2,6 +2,9 @@ import React from 'react';
 import Helmet from 'react-helmet';
 
 import { LinkButton } from 'components/button';
+import AppState from '../../store';
+import { actionCreators } from 'store/Identity';
+import { useAppState } from 'utils/store';
 
 import {
   FormControl,
@@ -14,7 +17,8 @@ import {
   Typography
 } from '@material-ui/core';
 import { Theme } from '@material-ui/core/styles';
-import { makeStyles } from '@material-ui/styles';
+import makeStyles from '@material-ui/styles/makeStyles';
+import { RouteComponentProps } from 'react-router';
 
 const useStyles = makeStyles((theme: Theme) => ({
   paper: {
@@ -45,8 +49,22 @@ const useStyles = makeStyles((theme: Theme) => ({
   }
 }));
 
-const Signin = () => {
+type Props = RouteComponentProps;
+
+const Signin = (props: Props) => {
   const classes = useStyles({});
+  const [, actions] = useAppState(
+    (appState: AppState) => appState.identity,
+    actionCreators
+  );
+
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+
+    actions.signin();
+
+    props.history.goBack();
+  };
 
   return (
     <>
@@ -63,7 +81,7 @@ const Signin = () => {
         <Typography component="h1" variant="h5" className={classes.header}>
           Signin
         </Typography>
-        <form method="POST" className={classes.form}>
+        <form method="POST" className={classes.form} onSubmit={handleSubmit}>
           <FormControl required fullWidth margin="normal">
             <InputLabel htmlFor="email">Email</InputLabel>
             <Input name="email" autoComplete="email" autoFocus />
